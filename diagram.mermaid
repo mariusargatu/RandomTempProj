@@ -1,0 +1,31 @@
+graph TD
+    A[User] -->|Upload Requirements Document| B[Streamlit App]
+    B --> C{Document Ingestion}
+    C -->|PDF Document| D[Document Loader & Splitter]
+    D --> E[Vector Store Retriever]
+    E --> F[ChromaDB]
+    E --> G[Custom Ollama Embeddings]
+
+    C --> H[Agent Helper]
+    H --> I[Retrieval Grader]
+    H --> J[Summary Chain]
+    H --> K[RAG Chain]
+    H --> L[Hallucination Grader]
+    H --> M[Answer Grader]
+    H --> N[Google Search Tool]
+
+    K --> O{Workflow Execution}
+    O --> P[Extract Software Requirements]
+    O --> Q[Generate Test Scenarios]
+    O --> R[Create XState Statechart]
+    O --> S[Build Traceability Matrix]
+    O --> T[Generate Playwright Scripts]
+
+    P -->|Message 1| B
+    Q -->|Message 2| B
+    R -->|Message 3| B
+    S -->|Message 4| B
+    T -->|Message 5| B
+
+    classDef terminal fill:#f96,stroke:#333,stroke-width:2px;
+    class A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T terminal;
